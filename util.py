@@ -126,7 +126,7 @@ def load_data(data_dir: str,
     dataset = Dataset(name=dataset_name, include_test=include_test)
     for split_name in dataset.splits:
         with open(os.path.join(data_dir, split_name + ".csv"),
-                  newline='', mode="r") as infile:
+                  newline='', mode="r", encoding="utf8") as infile:
             reader = csv.DictReader(infile, delimiter="|")
             for row in reader:
                 text = row["Text"]
